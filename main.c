@@ -20,6 +20,9 @@ int plateau[34];
 void selectionCouleurs(int *player1,int *player2);
 int TirageDe();
 int chevalSurPlateau(int *plateau, int quelCanasson);
+void affichagePlateau(int *plateau,int player1,int player2);
+void afficherCase(int *plateau, int player1, int player2, int i);
+void color (int couleurDuTexte, int couleurDuFond);
 
 
 int main(){
