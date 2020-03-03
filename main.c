@@ -7,7 +7,6 @@ Hugo Allaire
 #include<stdio.h>
 
 int main(){
-    printf("emile gros bg");
-    printf("\npsartek fdp");
-    
+
+
 }
