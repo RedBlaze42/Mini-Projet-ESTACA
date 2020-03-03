@@ -57,13 +57,12 @@ void selectionCouleurs(int* player1,int *player2){
     if (age1<age2){
         *player1=COULEUR_JAUNE;
         *player2=COULEUR_VERTE;
-    }else{
-        if (age1>age2){
+    }else if (age1>age2){
             *player1=COULEUR_VERTE ;
             *player2=COULEUR_JAUNE ;
         }else{
             int aleatoire = rand()%2;
-            if (aleatoire=0){
+        if (aleatoire==0){
                 *player1=COULEUR_JAUNE;
                 *player2=COULEUR_VERTE;
             }else{
@@ -72,7 +71,6 @@ void selectionCouleurs(int* player1,int *player2){
             }     
         }   
     } 
-}
 int tirageDe(){
     srand(time(NULL));
     int resultatDe=rand()%6+1;
@@ -87,21 +85,21 @@ int chevalSurPlateau(int *plateau, int quelCanasson){
     return 0;
 }
 
-int sortiCheval(int *plateau, int player){
+int sortirCheval(int *plateau, int player){
     if(player==1){
         if(chevalSurPlateau(plateau,1)==0){
             if(plateau[enclosPlayer1]==0){
                 plateau[0]=1;
             }else{
-                printf("la case est déja occupée vous ne pouvez pas sortir le canasson\n");
+                printf("La case est déja occupée vous ne pouvez pas sortir le canasson\n");
                 return 0;
             }
         }else{
             if(chevalSurPlateau(plateau, 2)==0){
-                if(plateau[enclosPlayer1==0]){
+                if(plateau[enclosPlayer1]==0){
                     plateau[0]=1;
                 }else{
-                    printf("vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
+                    printf("Vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
                     return 0;
                 }
             }
