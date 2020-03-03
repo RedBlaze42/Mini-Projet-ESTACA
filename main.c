@@ -7,12 +7,20 @@ Hugo Allaire
 #include<stdio.h>
 #include<windows.h>
 #include <time.h>
-#define COULEUR_JAUNE=14
-#define COULEUR_VERTE=10
+#define COULEUR_JAUNE 14
+#define COULEUR_VERTE 10
 
 void selectionCouleurs(int* player1,int* player2);
+int TirageDe();
 
 int main(){
+    int player1;
+    int player2;
+printf("bonjour\n");
+system
+printf("bienvenu dans le jeux des petits canassons\n");
+selectionCouleurs(&player1,&player2);
+printf("la partie commence\n puisse le sort vous etre favorable\n");
 
 
 
@@ -24,10 +32,10 @@ void selectionCouleurs(int* player1,int* player2){
     srand(time(NULL));
     printf("quel est votre age joueur numero 1?\n");
     scanf("%d",&age1);
-    system("clear");
-    printf("quel est votre age joueur numero 2");
+    system("cls");
+    printf("quel est votre age joueur numero 2\n");
     scanf("%d",&age2);
-    system("clear");
+    system("cls");
     if (age1<age2){
         *player1=COULEUR_JAUNE;
         *player2=COULEUR_VERTE;
@@ -43,11 +51,16 @@ void selectionCouleurs(int* player1,int* player2){
             }else{
             *player1=COULEUR_VERTE;
             *player2=COULEUR_JAUNE;
-            }    
+            }     
         }   
     } 
 }
-void TirageDe(){
+int TirageDe(){
+    srand(time(NULL));
     int resultatDe=rand()%6+1;
     return resultatDe;
+}
+int sortircheval(){
+
+    
 }
