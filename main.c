@@ -7,6 +7,8 @@ Hugo Allaire
 #include<stdio.h>
 #include<windows.h>
 #include <time.h>
+#define COULEUR_JAUNE=14
+#define COULEUR_VERTE=10
 
 void selectionCouleurs(int* player1,int* player2);
 
@@ -25,7 +27,7 @@ void selectionCouleurs(int* player1,int* player2){
     system("clear");
     printf("quel est votre age joueur numero 2");
     scanf("%d",&age2);
-
+    system("clear");
     if (age1<age2){
         *player1=COULEUR_JAUNE;
         *player2=COULEUR_VERTE;
@@ -34,8 +36,8 @@ void selectionCouleurs(int* player1,int* player2){
             *player1=COULEUR_VERTE ;
             *player2=COULEUR_JAUNE ;
         }else{
-            int aléatoire = rand(%)2;
-            if (aléatoire=0){
+            int aleatoire = rand()%2;
+            if (aleatoire=0){
                 *player1=COULEUR_JAUNE;
                 *player2=COULEUR_VERTE;
             }else{
@@ -44,4 +46,8 @@ void selectionCouleurs(int* player1,int* player2){
             }    
         }   
     } 
+}
+void TirageDe(){
+    int resultatDe=rand()%6+1;
+    return resultatDe;
 }
