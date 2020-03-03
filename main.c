@@ -8,6 +8,9 @@ Hugo Allaire
 #include<windows.h>//Uniquement pour windows
 #define enclosPlayer1 0
 #define enclosPlayer2 17
+int plateau[34];
+
+
 void affichagePlateau(int *plateau,int player1,int player2){
     color(15,7);
     for(int i=0;i<16;i++){
