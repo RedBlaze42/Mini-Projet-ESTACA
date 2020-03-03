@@ -61,12 +61,16 @@ void selectionCouleurs(int* player1,int* player2){
         }   
     } 
 }
-int TirageDe(){
+int tirageDe(){
     srand(time(NULL));
     int resultatDe=rand()%6+1;
     return resultatDe;
 }
-int sortircheval(){
-
-
+int chevalSurPlateau(*plateau[], int quelCanasson){
+    for(i=0;i<34;i++){
+        if(plateau[i]==quelCanasson){
+            return 1;
+        }
+    }
+    return 0
 }
