@@ -5,7 +5,6 @@ Hugo Allaire
 */
 #include<stdlib.h>
 #include<stdio.h>
-#define linux
 
 #ifndef linux
 #include<windows.h>//Uniquement pour windows
