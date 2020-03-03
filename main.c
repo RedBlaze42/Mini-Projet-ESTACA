@@ -5,7 +5,11 @@ Hugo Allaire
 */
 #include<stdlib.h>
 #include<stdio.h>
+
+#ifndef linux
 #include<windows.h>//Uniquement pour windows
+#endif
+
 #include <time.h>
 #define enclosPlayer1 0
 #define enclosPlayer2 17
@@ -135,11 +139,15 @@ void afficherCase(int *plateau, int player1, int player2, int i){
     }
 }
 
+#ifndef linux
 void color (int couleurDuTexte, int couleurDuFond){//Version windows
     HANDLE H = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(H, couleurDuFond*16+couleurDuTexte);
 }
-/*
+#else
+void Sleep(int seconds){
+    sleep(seconds);
+}
 void color (int couleurDuTexte, int couleurDuFond){//Version linux
     if(couleurDuTexte==14){
         printf("\e[38;5;226m");
@@ -167,4 +175,5 @@ void color (int couleurDuTexte, int couleurDuFond){//Version linux
     }else if(couleurDuFond==5){
         printf("\e[48;5;201m");
     }
-}*/
+}
+#endif
