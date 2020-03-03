@@ -41,23 +41,7 @@ void selectionCouleurs(int* player1,int* player2){
             }else{
             *player1=COULEUR_VERTE;
             *player2=COULEUR_JAUNE;
-            }
-             
-            
-            
-            
-        }
-       
-        
-        
-    }    
-        
-        
-        
-    }
-
-
-
-
-
+            }    
+        }   
+    } 
 }
