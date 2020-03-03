@@ -5,6 +5,7 @@ Hugo Allaire
 */
 #include<stdlib.h>
 #include<stdio.h>
+#define linux
 
 #ifndef linux
 #include<windows.h>//Uniquement pour windows
@@ -25,20 +26,20 @@ int chevalSurPlateau(int *plateau, int quelCanasson);
 int main(){
     int player1;
     int player2;
-printf("bonjour\n");
+    printf("bonjour\n");
     Sleep(5);
-system("cls");
-printf("bienvenu dans le jeux des petits canassons\n");
+    system("cls");
+    printf("bienvenu dans le jeux des petits canassons\n");
     Sleep(10);
-system("cls");
-selectionCouleurs(&player1,&player2);
-printf("la partie commence\n puisse le sort vous etre favorable\n");
+    system("cls");
+    selectionCouleurs(&player1,&player2);
+    printf("la partie commence\n puisse le sort vous etre favorable\n");
     Sleep(10);
-system("cls");
+    system("cls");
 }
 
 void selectionCouleurs(int* player1,int *player2){
-   int age1;
+    int age1;
     int age2;
     srand(time(NULL));
     printf("quel est votre age joueur numero 1?\n");
