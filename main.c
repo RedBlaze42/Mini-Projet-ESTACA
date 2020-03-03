@@ -10,8 +10,10 @@ Hugo Allaire
 #define COULEUR_JAUNE 14
 #define COULEUR_VERTE 10
 
-void selectionCouleurs(int* player1,int* player2);
+void selectionCouleurs(int *player1,int *player2);
 int TirageDe();
+int chevalSurPlateau(int *plateau, int quelCanasson);
+
 
 int main(){
     int player1;
@@ -32,7 +34,7 @@ system("cls");
 
 }
 
-void selectionCouleurs(int* player1,int* player2){
+void selectionCouleurs(int* player1,int *player2){
    int age1;
     int age2;
     srand(time(NULL));
@@ -66,11 +68,35 @@ int tirageDe(){
     int resultatDe=rand()%6+1;
     return resultatDe;
 }
-int chevalSurPlateau(*plateau[], int quelCanasson){
-    for(i=0;i<34;i++){
+int chevalSurPlateau(int *plateau, int quelCanasson){
+    for(int i=0;i<34;i++){
         if(plateau[i]==quelCanasson){
             return 1;
         }
     }
-    return 0
+    return 0;
+}
+
+int sortiCheval(int *plateau, int player){
+    if(player==1){
+        if(chevalSurPlateau(plateau,1)==0){
+            if(plateau[enclosPlayer1]==0){
+                plateau[0]=1;
+            }else{
+                printf("la case est déja occupée vous ne pouvez pas sortir le canasson\n");
+                return 0;
+            }
+        }else{
+            if(chevalSurPlateau(plateau, 2)==0){
+                if(plateau[enclosPlayer1==0]){
+                    plateau[0]=1;
+                }else{
+                    printf("vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
+                    return 0;
+                }
+            }
+        }
+    }else{
+// fais pareil pour le joueur 2
+    }
 }
