@@ -17,10 +17,16 @@ int main(){
     int player1;
     int player2;
 printf("bonjour\n");
-system
+Sleep(500);
+system("cls");
 printf("bienvenu dans le jeux des petits canassons\n");
+Sleep(1000);
+system("cls");
 selectionCouleurs(&player1,&player2);
 printf("la partie commence\n puisse le sort vous etre favorable\n");
+Sleep(1000);
+system("cls");
+
 
 
 
@@ -62,5 +68,5 @@ int TirageDe(){
 }
 int sortircheval(){
 
-    
+
 }
