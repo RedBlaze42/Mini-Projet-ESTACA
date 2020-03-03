@@ -28,15 +28,19 @@ void color (int couleurDuTexte, int couleurDuFond);
 int main(){
     int player1;
     int player2;
-    printf("bonjour\n");
-    Sleep(5);
+    printf("Bonjour\n");
+    Sleep(1);
     system("cls");
-    printf("bienvenu dans le jeux des petits canassons\n");
-    Sleep(10);
+    printf("Bienvenue dans le jeu des petits canassons\n");
+    Sleep(3);
     system("cls");
     selectionCouleurs(&player1,&player2);
-    printf("la partie commence\n puisse le sort vous etre favorable\n");
-    Sleep(10);
+    printf("La partie commence\n puisse le sort vous etre favorable\n");
+    printf("Couleurs: "); color(player1,0); printf("Joueur 1 "); color(player2,0); printf("Joueur 2"); color(15,0); printf("\n");
+    system("pause");
+    system("cls");
+
+    Sleep(3);
     system("cls");
 }
 
