@@ -211,6 +211,8 @@ int coordCheval(int *plateau, int id_cheval){
         for(int i=0;i<34;i++){
             if(plateau[i]==id_cheval){
                 return i;
+            }else{
+                return -1;
             }
         }
     }
