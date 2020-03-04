@@ -24,6 +24,7 @@ void affichagePlateau(int *plateau,int player1,int player2);
 void afficherCase(int *plateau, int player1, int player2, int i);
 void color (int couleurDuTexte, int couleurDuFond);
 int coordCheval(int *plateau, int id_cheval);//Retourne la position du cheval sur le plateau ou -1 si le cheval n'est pas sur le plateau
+void avancerCheval(int *plateau, int id_cheval, int valeur_de);
 
 int main(){
     int player1;
@@ -42,6 +43,17 @@ int main(){
 
     Sleep(3);
     system("cls");
+}
+
+void avancerCheval(int *plateau, int id_cheval, int valeur_de){
+    int coord_cheval=coordCheval(plateau,id_cheval);
+    int nouvelle_coord_cheval=(coord_cheval+valeur_de)%33;
+    if(plateau[nouvelle_coord_cheval]!=0){
+        printf("Déplacement impossible: un cannasson est présent sur la case %d",nouvelle_coord_cheval+1);
+    }else{
+        plateau[nouvelle_coord_cheval]=id_cheval;
+        plateau[coord_cheval]=0;
+    }
 }
 
 void selectionCouleurs(int* player1,int *player2){
