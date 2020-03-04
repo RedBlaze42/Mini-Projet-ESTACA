@@ -215,6 +215,5 @@ int coordCheval(int *plateau, int id_cheval){
                 return -1;
             }
         }
-    }
-    
+    }  
 }
