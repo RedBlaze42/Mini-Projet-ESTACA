@@ -109,7 +109,7 @@ int sortirCheval(int *plateau, int player){
         }else{
             if(chevalSurPlateau(plateau, 2)==0){
                 if(plateau[enclosPlayer1]==0){
-                    plateau[0]=1;
+                    plateau[0]=2;
                 }else{
                     printf("Vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
                     return 0;
@@ -117,7 +117,21 @@ int sortirCheval(int *plateau, int player){
             }
         }
     }else{
-// fais pareil pour le joueur 2
+        if(chevalSurPlateau(plateau,3)==0){
+            if(plateau[enclosPlayer2]==0){
+                plateau[0]=3;
+            }else{
+           printf("la case est déja occupée vous ne pouvez pas sortir le canasson\n");
+           return 0;
+            }
+        }else{
+            if(chevalSurPlateau(plateau,4)==0){
+                plateau[0]=3;
+            }else{
+                printf("vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
+                return 0;
+            }
+        }
     }
 }
 
