@@ -123,7 +123,6 @@ int sortirCheval(int *plateau, int player){
 
 
 void affichagePlateau(int *plateau,int player1,int player2){
-    color(15,7);
     for(int i=0;i<16;i++){
         afficherCase(plateau,player1,player2,i);
     }
@@ -131,13 +130,10 @@ void affichagePlateau(int *plateau,int player1,int player2){
     printf("\n");
     afficherCase(plateau,player1,player2,33);
     color(0,0);
-    for(int i=1;i<15;i++){
-        printf(" ");
-    }
+    for(int i=1;i<15;i++) printf(" ");//affiche 15 espaces
     afficherCase(plateau,player1,player2,16);
     color(15,0);
     printf("\n");
-    color(15,7);
     for(int i=32;i>16;i--){
         afficherCase(plateau,player1,player2,i);
     }
@@ -145,13 +141,13 @@ void affichagePlateau(int *plateau,int player1,int player2){
 }
 void afficherCase(int *plateau, int player1, int player2, int i){
     if(plateau[i]==1 || plateau[i]==2){//player 1
-        color(15,player1);
+        color(0,player1);
         printf("%d",plateau[i]);
     }else if(plateau[i]==3 || plateau[i]==4){//player 2
-        color(15,player2);
+        color(0,player2);
         printf("%d",plateau[i]-2);
     }else{
-        color(15,7);
+        color(0,7);
         printf(" ");
     }
 }
