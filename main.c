@@ -49,7 +49,7 @@ void avancerCheval(int *plateau, int id_cheval, int valeur_de){
     int coord_cheval=coordCheval(plateau,id_cheval);
     int nouvelle_coord_cheval=(coord_cheval+valeur_de)%33;
     if(plateau[nouvelle_coord_cheval]!=0){
-        printf("Déplacement impossible: un cannasson est présent sur la case %d",nouvelle_coord_cheval+1);
+        printf("Déplacement impossible: un canasson est présent sur la case %d",nouvelle_coord_cheval+1);
     }else{
         plateau[nouvelle_coord_cheval]=id_cheval;
         plateau[coord_cheval]=0;
