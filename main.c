@@ -23,7 +23,7 @@ int chevalSurPlateau(int *plateau, int quelCanasson);
 void affichagePlateau(int *plateau,int player1,int player2);
 void afficherCase(int *plateau, int player1, int player2, int i);
 void color (int couleurDuTexte, int couleurDuFond);
-
+int coordCheval(int *plateau, int id_cheval);//Retourne la position du cheval sur le plateau ou -1 si le cheval n'est pas sur le plateau
 
 int main(){
     int player1;
