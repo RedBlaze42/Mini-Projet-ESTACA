@@ -26,6 +26,7 @@ void color (int couleurDuTexte, int couleurDuFond);
 int coordCheval(int *plateau, int id_cheval);//Retourne la position du cheval sur le plateau ou -1 si le cheval n'est pas sur le plateau
 void avancerCheval(int *plateau, int id_cheval, int valeur_de);
 int tourDeJeux(int coordcheval, int tirageDe);
+int quelPlayer(int tourDeJeux);
 
 int main(){
     int player1;
@@ -214,21 +215,40 @@ int coordCheval(int *plateau, int id_cheval){
     return -1;    
 }
 int tourDeJeux(int coordcheval, int tirageDe){
-    switch(tirageDe){
-        case 1 : avancerCheval( plateau, id_cheval, 1);
-        case 2 : avancerCheval(  plateau, id_cheval, 2);
-        case 3 : avancerCheval( plateau, id_cheval, 3);
-        case 4 : avancerCheval( plateau, id_cheval, 4);
-        case 5 : avancerCheval( plateau, id_cheval, 5);
-        case 6 : if(chevalSurPlateau( plateau, )==1){
-            printf("Tapez 1 si vous voulez sortir votre deuxieme cheval, sinon tapez 2");
-            int i;
-            scanf("%D", &i);
+    printf("le dé affiche la valeur %d", tirageDe);
+    if(tirageDe==6){
+        int i;
+        printf("Si vous voulez sortir un votre deuxieme cheval tapez 1 sinon tapez 2");
+        scanf("%d", i);
+        if(quelPlayer==1){
             if(i==1){
-                sortirCheval(plateau, player);
+                sortirCheval( plateau, 2);
             }else{
-                avancerCheval( plateau, id_cheval, 6);
+                avancerCheval( plateau, 1, tirageDe);
             }
+        }else{
+           if(i==1){
+                sortirCheval( plateau, 3);
+            }else{
+                avancerCheval( plateau, 4, tirageDe);      
         }
-    } 
+    }else{
+        int quelChev;
+        printf("quel cheval voulez vous avancer ?");
+        scanf("%d", quelChev);
+        if(quelPlayer==1){
+            avancerCheval( plateau, quelChev, tirageDe);
+            return 1;
+        }else{
+            avancerCheval( plateau, quelChev+2, tirageDe);
+            return 2;
+        }
+    }
+}
+int quelPlayer(int tourDeJeux){
+    if(tourDeJeux==1){
+         return 1;
+    }else{
+        return 2;
+    }
 }
