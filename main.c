@@ -25,6 +25,7 @@ void afficherCase(int *plateau, int player1, int player2, int i);
 void color (int couleurDuTexte, int couleurDuFond);
 int coordCheval(int *plateau, int id_cheval);//Retourne la position du cheval sur le plateau ou -1 si le cheval n'est pas sur le plateau
 void avancerCheval(int *plateau, int id_cheval, int valeur_de);
+int tourDeJeux(int coordcheval, int tirageDe);
 
 int main(){
     int player1;
@@ -77,7 +78,7 @@ void selectionCouleurs(int* player1,int *player2){
         if (aleatoire==0){
                 *player1=COULEUR_JAUNE;
                 *player2=COULEUR_VERTE;
-            }else{
+            }else{ 
             *player1=COULEUR_VERTE;
             *player2=COULEUR_JAUNE;
             }     
@@ -211,4 +212,23 @@ int coordCheval(int *plateau, int id_cheval){
         }
     }  
     return -1;    
+}
+int tourDeJeux(int coordcheval, int tirageDe){
+    switch(tirageDe){
+        case 1 : avancerCheval( plateau, id_cheval, 1);
+        case 2 : avancerCheval(  plateau, id_cheval, 2);
+        case 3 : avancerCheval( plateau, id_cheval, 3);
+        case 4 : avancerCheval( plateau, id_cheval, 4);
+        case 5 : avancerCheval( plateau, id_cheval, 5);
+        case 6 : if(chevalSurPlateau( plateau, )==1){
+            printf("Tapez 1 si vous voulez sortir votre deuxieme cheval, sinon tapez 2");
+            int i;
+            scanf("%D", &i);
+            if(i==1){
+                sortirCheval(plateau, player);
+            }else{
+                avancerCheval( plateau, id_cheval, 6);
+            }
+        }
+    } 
 }
