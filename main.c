@@ -5,7 +5,7 @@ Hugo Allaire
 */
 #include<stdlib.h>
 #include<stdio.h>
-
+#define linux
 #ifndef linux
 #include<windows.h>//Uniquement pour windows
 #endif
@@ -40,7 +40,8 @@ int main(){
     selectionCouleurs(&player1,&player2);
     printf("La partie commence\n puisse le sort vous etre favorable\n");
     printf("Couleurs: "); color(player1,0); printf("Joueur 1 "); color(player2,0); printf("Joueur 2"); color(15,0); printf("\n");
-    system("pause");
+    printf("C'est donc le joueur "); color(COULEUR_JAUNE,0); printf("jaune"); color(15,0); printf(" qui commence");
+    Sleep("3");
     system("cls");
 
     Sleep(3);
@@ -139,6 +140,15 @@ int sortirCheval(int *plateau, int player){
 
 
 void affichagePlateau(int *plateau,int player1,int player2){
+    if(chevalSurPlateau(plateau,1)==0){
+        color(0,player1);
+        printf("1");
+    }else{
+        color(0,7);
+        printf(" ");
+    }
+
+
     for(int i=0;i<16;i++){
         afficherCase(plateau,player1,player2,i);
     }
@@ -155,6 +165,7 @@ void affichagePlateau(int *plateau,int player1,int player2){
     }
     color(15,0);
 }
+
 void afficherCase(int *plateau, int player1, int player2, int i){
     if(plateau[i]==1 || plateau[i]==2){//player 1
         color(0,player1);
