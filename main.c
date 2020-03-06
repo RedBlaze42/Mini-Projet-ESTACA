@@ -32,17 +32,17 @@ int main(){
     int player1;
     int player2;
     printf("Bonjour\n");
-    Sleep(1);
+    sleep(1);
     system("cls");
     printf("Bienvenue dans le jeu des petits canassons\n");
-    Sleep(3);
+    sleep(3);
     system("cls");
     selectionCouleurs(&player1,&player2);
-    printf("La partie commence\n puisse le sort vous etre favorable\n");
+    printf("La partie commence, puisse le sort vous etre favorable\n");
     printf("Couleurs: "); color(player1,0); printf("Joueur 1 "); color(player2,0); printf("Joueur 2"); color(15,0); printf("\n");
     printf("C'est donc le joueur "); color(COULEUR_JAUNE,0); printf("jaune"); color(15,0); printf(" qui commence\n");
 
-    Sleep(3);
+    sleep(3);
     system("cls");
     plateau[3]=2;
     affichagePlateau(plateau,player1,player2);
