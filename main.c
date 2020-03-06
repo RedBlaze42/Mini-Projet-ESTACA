@@ -167,45 +167,6 @@ void afficherCase(int *plateau, int player1, int player2, int i){
         printf(" ");
     }
 }
-
-#ifndef linux
-void color (int couleurDuTexte, int couleurDuFond){//Version windows
-    HANDLE H = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(H, couleurDuFond*16+couleurDuTexte);
-}
-#else
-void Sleep(int seconds){
-    sleep(seconds);
-}
-void color (int couleurDuTexte, int couleurDuFond){//Version linux
-    if(couleurDuTexte==14){
-        printf("\e[38;5;226m");
-    }else if(couleurDuTexte==10){
-        printf("\e[38;5;118m");
-    }else if(couleurDuTexte==0){
-        printf("\e[38;5;232m");
-    }else if(couleurDuTexte==15){
-        printf("\e[38;5;255m");
-    }else if(couleurDuTexte==7){
-        printf("\e[38;5;250m");
-    }else if(couleurDuTexte==5){
-        printf("\e[38;5;201m");
-    }
-    if(couleurDuFond==14){
-        printf("\e[48;5;226m");
-    }else if(couleurDuFond==10){
-        printf("\e[48;5;118m");
-    }else if(couleurDuFond==0){
-        printf("\e[48;5;232m");
-    }else if(couleurDuFond==15){
-        printf("\e[48;5;255m");
-    }else if(couleurDuFond==7){
-        printf("\e[48;5;250m");
-    }else if(couleurDuFond==5){
-        printf("\e[48;5;201m");
-    }
-}
-#endif
 int coordCheval(int *plateau, int id_cheval){
         for(int i=0;i<34;i++){
             if(plateau[i]==id_cheval){
@@ -252,3 +213,42 @@ int quelPlayer(int tourDeJeux){
         return 2; 
     }
 }
+
+#ifndef linux
+void color (int couleurDuTexte, int couleurDuFond){//Version windows
+    HANDLE H = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(H, couleurDuFond*16+couleurDuTexte);
+}
+#else
+void Sleep(int seconds){
+    sleep(seconds);
+}
+void color (int couleurDuTexte, int couleurDuFond){//Version linux
+    if(couleurDuTexte==14){
+        printf("\e[38;5;226m");
+    }else if(couleurDuTexte==10){
+        printf("\e[38;5;118m");
+    }else if(couleurDuTexte==0){
+        printf("\e[38;5;232m");
+    }else if(couleurDuTexte==15){
+        printf("\e[38;5;255m");
+    }else if(couleurDuTexte==7){
+        printf("\e[38;5;250m");
+    }else if(couleurDuTexte==5){
+        printf("\e[38;5;201m");
+    }
+    if(couleurDuFond==14){
+        printf("\e[48;5;226m");
+    }else if(couleurDuFond==10){
+        printf("\e[48;5;118m");
+    }else if(couleurDuFond==0){
+        printf("\e[48;5;232m");
+    }else if(couleurDuFond==15){
+        printf("\e[48;5;255m");
+    }else if(couleurDuFond==7){
+        printf("\e[48;5;250m");
+    }else if(couleurDuFond==5){
+        printf("\e[48;5;201m");
+    }
+}
+#endif
