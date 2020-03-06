@@ -102,41 +102,33 @@ int chevalSurPlateau(int *plateau, int quelCanasson){
 
 int sortirCheval(int *plateau, int player){
     if(player==1){
-        if(chevalSurPlateau(plateau,1)==0){
-            if(plateau[enclosPlayer1]==0){
-                plateau[0]=1;
-            }else{
+        if(plateau[enclosPlayer1]!=0){
                 printf("La case est déja occupée vous ne pouvez pas sortir le canasson\n");
                 return 0;
             }
+        if(chevalSurPlateau(plateau,1)==0){
+            plateau[enclosPlayer1]=1;
+        }else if(chevalSurPlateau(plateau,2)==0){
+            plateau[enclosPlayer1]=2;          
         }else{
-            if(chevalSurPlateau(plateau, 2)==0){
-                if(plateau[enclosPlayer1]==0){
-                    plateau[0]=2;
-                }else{
                     printf("Vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
                     return 0;
                 }
-            }
-        }
     }else{
-        if(chevalSurPlateau(plateau,3)==0){
-            if(plateau[enclosPlayer2]==0){
-                plateau[0]=3;
-            }else{
-           printf("la case est déja occupée vous ne pouvez pas sortir le canasson\n");
+        if(plateau[enclosPlayer2]!=0){
+            printf("La case est déja occupée vous ne pouvez pas sortir le canasson\n");
            return 0;
             }
-        }else{
-            if(chevalSurPlateau(plateau,4)==0){
-                plateau[0]=3;
+        if(chevalSurPlateau(plateau,3)==0){
+            plateau[enclosPlayer2]=3;
+        }else if(chevalSurPlateau(plateau,4)==0){
+            plateau[enclosPlayer2]=4;          
             }else{
-                printf("vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
+            printf("Vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
                 return 0;
             }
         }
     }
-}
 
 
 void affichagePlateau(int *plateau,int player1,int player2){
