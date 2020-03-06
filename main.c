@@ -245,7 +245,7 @@ int tourDeJeux(int coordcheval, int tirageDe){
         }
     }
 }
-int quelPlayer(int tourDeJeux){
+int quelPlayer( tourDeJeux){
     if(tourDeJeux==1){ 
          return 1;
     }else{
