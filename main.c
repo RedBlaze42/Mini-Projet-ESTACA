@@ -184,6 +184,27 @@ void affichagePlateau(int *plateau,int player1,int player2){
         printf(" ");
     }
     color(15,0); printf("\n");
+    printf("Canassons arrivés:\n");
+    color(player1,0);
+    printf("Joueur 1: ");
+    for(int i=0;i<2;i++){
+        if(arrivee[i]==1){
+            color(0,player1); printf("%d",i+1);
+        }else{
+            color(0,7); printf(" ");
+        }
+    }
+    color(15,0); printf("\n");
+    color(player2,0);
+    printf("Joueur 2: ");
+    for(int i=2;i<4;i++){
+        if(arrivee[i]==1){
+            color(0,player2); printf("%d",i-1);
+        }else{
+            color(0,7); printf(" ");
+        }
+}
+    color(15,0); printf("\n");
 }
 
 void afficherCase(int *plateau, int player1, int player2, int i){
