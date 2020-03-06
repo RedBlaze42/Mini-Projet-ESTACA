@@ -5,7 +5,7 @@ Hugo Allaire
 */
 #include<stdlib.h>
 #include<stdio.h>
-#define linux
+
 #ifndef linux
 #include<windows.h>//Uniquement pour windows
 #endif
@@ -45,8 +45,6 @@ int main(){
 
     sleep(3);
     system("cls");
-    plateau[3]=2;
-    affichagePlateau(plateau,player1,player2);
 }
 
 void avancerCheval(int *plateau, int id_cheval, int valeur_de){
@@ -64,10 +62,10 @@ void selectionCouleurs(int* player1,int *player2){
     int age1;
     int age2;
     srand(time(NULL));
-    printf("quel est votre age joueur numero 1?\n");
+    printf("Quel est votre age joueur numero 1?\n");
     scanf("%d",&age1);
     system("cls");
-    printf("quel est votre age joueur numero 2\n");
+    printf("Quel est votre age joueur numero 2\n");
     scanf("%d",&age2);
     system("cls");
     if (age1<age2){
@@ -105,35 +103,36 @@ int chevalSurPlateau(int *plateau, int quelCanasson){
 int sortirCheval(int *plateau, int player){
     if(player==1){
         if(plateau[enclosPlayer1]!=0){
-                printf("La case est déja occupée vous ne pouvez pas sortir le canasson\n");
-                return 0;
-            }
+            printf("La case est déja occupée vous ne pouvez pas sortir le canasson\n");
+            return 0;
+        }
         if(chevalSurPlateau(plateau,1)==0){
             plateau[enclosPlayer1]=1;
         }else if(chevalSurPlateau(plateau,2)==0){
             plateau[enclosPlayer1]=2;          
         }else{
-                    printf("Vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
-                    return 0;
-                }
+            printf("Vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
+            return 0;
+        }
     }else{
         if(plateau[enclosPlayer2]!=0){
             printf("La case est déja occupée vous ne pouvez pas sortir le canasson\n");
-           return 0;
-            }
+            return 0;
+        }
         if(chevalSurPlateau(plateau,3)==0){
             plateau[enclosPlayer2]=3;
         }else if(chevalSurPlateau(plateau,4)==0){
             plateau[enclosPlayer2]=4;          
-            }else{
+        }else{
             printf("Vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
-                return 0;
-            }
+            return 0;
         }
     }
+}
 
 
 void affichagePlateau(int *plateau,int player1,int player2){
+    printf("Plateau de jeu: \n");
     if(chevalSurPlateau(plateau,1)==0){
         color(0,player1);
         printf("1");
@@ -205,7 +204,7 @@ void affichagePlateau(int *plateau,int player1,int player2){
         }else{
             color(0,7); printf(" ");
         }
-}
+    }
     color(15,0); printf("\n");
 }
 
@@ -275,9 +274,6 @@ void color (int couleurDuTexte, int couleurDuFond){//Version windows
     SetConsoleTextAttribute(H, couleurDuFond*16+couleurDuTexte);
 }
 #else
-void Sleep(int seconds){
-    sleep(seconds);
-}
 void color (int couleurDuTexte, int couleurDuFond){//Version linux
     if(couleurDuTexte==14){
         printf("\e[38;5;226m");
