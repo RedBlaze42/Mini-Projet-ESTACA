@@ -40,12 +40,12 @@ int main(){
     selectionCouleurs(&player1,&player2);
     printf("La partie commence\n puisse le sort vous etre favorable\n");
     printf("Couleurs: "); color(player1,0); printf("Joueur 1 "); color(player2,0); printf("Joueur 2"); color(15,0); printf("\n");
-    printf("C'est donc le joueur "); color(COULEUR_JAUNE,0); printf("jaune"); color(15,0); printf(" qui commence");
-    Sleep("3");
-    system("cls");
+    printf("C'est donc le joueur "); color(COULEUR_JAUNE,0); printf("jaune"); color(15,0); printf(" qui commence\n");
 
     Sleep(3);
     system("cls");
+    plateau[3]=2;
+    affichagePlateau(plateau,player1,player2);
 }
 
 void avancerCheval(int *plateau, int id_cheval, int valeur_de){
@@ -147,6 +147,15 @@ void affichagePlateau(int *plateau,int player1,int player2){
         color(0,7);
         printf(" ");
     }
+    color(15,0); printf("\n");
+    if(chevalSurPlateau(plateau,2)==0){
+        color(0,player1);
+        printf("2");
+    }else{
+        color(0,7);
+        printf(" ");
+    }
+    color(15,0); printf("\n");
 
 
     for(int i=0;i<16;i++){
@@ -164,6 +173,25 @@ void affichagePlateau(int *plateau,int player1,int player2){
         afficherCase(plateau,player1,player2,i);
     }
     color(15,0);
+    printf("\n");
+    for(int i=0;i<15;i++) printf(" ");
+    if(chevalSurPlateau(plateau,3)==0){
+        color(0,player2);
+        printf("1");
+    }else{
+        color(0,7);
+        printf(" ");
+    }
+    color(15,0); printf("\n");
+    for(int i=0;i<15;i++) printf(" ");
+    if(chevalSurPlateau(plateau,4)==0){
+        color(0,player2);
+        printf("2");
+    }else{
+        color(0,7);
+        printf(" ");
+    }
+    color(15,0); printf("\n");
 }
 
 void afficherCase(int *plateau, int player1, int player2, int i){
@@ -186,6 +214,7 @@ int coordCheval(int *plateau, int id_cheval){
     }  
     return -1;    
 }
+/*
 int tourDeJeux(int coordcheval, int tirageDe){
     printf("le dé affiche la valeur %d", tirageDe);
     if(tirageDe==6){
@@ -216,7 +245,7 @@ int tourDeJeux(int coordcheval, int tirageDe){
             return 2;
         }
     }
-}
+}*/
 int quelPlayer(int tourDeJeux){
     if(tourDeJeux==1){ 
          return 1;
