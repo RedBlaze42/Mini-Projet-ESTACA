@@ -228,7 +228,7 @@ int coordCheval(int *plateau, int id_cheval){
     }  
     return -1;    
 }
-/*
+
 int tourDeJeux(int coordcheval, int tirageDe){
     printf("le dé affiche la valeur %d", tirageDe);
     if(tirageDe==6){
@@ -259,8 +259,10 @@ int tourDeJeux(int coordcheval, int tirageDe){
             return 2;
         }
     }
-}*/
-int quelPlayer(int tourDeJeux){
+
+}
+int quelPlayer( tourDeJeux){
+
     if(tourDeJeux==1){ 
          return 1;
     }else{
