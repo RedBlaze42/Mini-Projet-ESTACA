@@ -16,6 +16,7 @@ Hugo Allaire
 #define COULEUR_JAUNE 14
 #define COULEUR_VERTE 10
 int plateau[34];
+int arrivee[4];
 
 void selectionCouleurs(int *player1,int *player2);
 int TirageDe();
@@ -92,6 +93,7 @@ int tirageDe(){
     return resultatDe;
 }
 int chevalSurPlateau(int *plateau, int quelCanasson){
+    if(arrivee[quelCanasson-1]==1) return 1;
     for(int i=0;i<34;i++){
         if(plateau[i]==quelCanasson){
             return 1;
