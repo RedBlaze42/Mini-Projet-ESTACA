@@ -41,6 +41,7 @@ int main(){
     int tour_en_cours=selectionCouleurs(&player1,&player2);
     printf("La partie commence\n puisse le sort vous etre favorable\n");
     printf("Couleurs: "); color(player1,0); printf("Joueur 1 "); color(player2,0); printf("Joueur 2"); color(15,0); printf("\n");
+    printf("C'est donc le joueur "); color(COULEUR_JAUNE,0); printf("jaune"); color(15,0); printf(" qui commence\n");
     system("pause");
     int partie_non_finie=1;
     while(partie_non_finie==1){
@@ -51,7 +52,6 @@ int main(){
         tour_en_cours=(tour_en_cours+1);
         if(tour_en_cours>2) tour_en_cours=1;
     }
-    
 }
 
 void avancerCheval(int *plateau, int id_cheval, int valeur_de, int *arrivee){
@@ -76,10 +76,10 @@ int selectionCouleurs(int* player1,int *player2){
     int age1;
     int age2;
     srand(time(NULL));
-    printf("quel est votre age joueur numero 1?\n");
+    printf("Quel est votre age joueur numero 1?\n");
     scanf("%d",&age1);
     system("cls");
-    printf("quel est votre age joueur numero 2\n");
+    printf("Quel est votre age joueur numero 2\n");
     scanf("%d",&age2);
     system("cls");
     if (age1<age2){
@@ -116,6 +116,7 @@ int tirageDe(){
     printf("\nRésultat du dé: %d",resultatDe);
     return resultatDe;
 }
+
 int chevalSurPlateau(int *plateau, int quelCanasson, int *arrivee){
     if(arrivee[quelCanasson-1]==1) return 0;
     for(int i=0;i<34;i++){
@@ -128,43 +129,53 @@ int chevalSurPlateau(int *plateau, int quelCanasson, int *arrivee){
 
 int sortirCheval(int *plateau, int player){
     if(player==1){
-        if(chevalSurPlateau(plateau,1, arrivee)==0){
-            if(plateau[enclosPlayer1]==0){
-                plateau[0]=1;
-            }else{
-                printf("La case est déja occupée vous ne pouvez pas sortir le canasson\n");
-                return 0;
-            }
+        if(plateau[enclosPlayer1]!=0){
+            printf("La case est déja occupée vous ne pouvez pas sortir le canasson\n");
+            return 0;
+        }
+        if(chevalSurPlateau(plateau,1)==0){
+            plateau[enclosPlayer1]=1;
+        }else if(chevalSurPlateau(plateau,2)==0){
+            plateau[enclosPlayer1]=2;          
         }else{
-            if(chevalSurPlateau(plateau, 2, arrivee)==0){
-                if(plateau[enclosPlayer1]==0){
-                    plateau[0]=2;
-                }else{
-                    printf("Vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
-                    return 0;
-                }
-            }
+            printf("Vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
+            return 0;
         }
     }else{
-        if(chevalSurPlateau(plateau,3, arrivee)==0){
-            if(plateau[enclosPlayer2]==0){
-                plateau[0]=3;
-            }else{
-           printf("la case est déja occupée vous ne pouvez pas sortir le canasson\n");
-           return 0;
-            }
+        if(plateau[enclosPlayer2]!=0){
+            printf("La case est déja occupée vous ne pouvez pas sortir le canasson\n");
+            return 0;
+        }
+        if(chevalSurPlateau(plateau,3)==0){
+            plateau[enclosPlayer2]=3;
+        }else if(chevalSurPlateau(plateau,4)==0){
+            plateau[enclosPlayer2]=4;          
         }else{
-            if(chevalSurPlateau(plateau,4, arrivee)==0){
-                plateau[0]=3;
-            }else{
-                printf("vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
-                return 0;
-            }
+            printf("Vous avez déja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
+            return 0;
         }
     }
 }
 
-void affichagePlateau(int *plateau,int player1,int player2, int *arrivee){
+
+void affichagePlateau(int *plateau,int player1,int player2){
+    printf("Plateau de jeu: \n");
+    if(chevalSurPlateau(plateau,1)==0){
+        color(0,player1);
+        printf("1");
+    }else{
+        color(0,7);
+        printf(" ");
+    }
+    color(15,0); printf("\n");
+    if(chevalSurPlateau(plateau,2)==0){
+        color(0,player1);
+        printf("2");
+    }else{
+        color(0,7);
+        printf(" ");
+    }
+    color(15,0); printf("\n");
     for(int i=0;i<16;i++){
         afficherCase(plateau,player1,player2,i);
     }
@@ -180,6 +191,46 @@ void affichagePlateau(int *plateau,int player1,int player2, int *arrivee){
         afficherCase(plateau,player1,player2,i);
     }
     color(15,0);
+    printf("\n");
+    for(int i=0;i<15;i++) printf(" ");
+    if(chevalSurPlateau(plateau,3)==0){
+        color(0,player2);
+        printf("1");
+    }else{
+        color(0,7);
+        printf(" ");
+    }
+    color(15,0); printf("\n");
+    for(int i=0;i<15;i++) printf(" ");
+    if(chevalSurPlateau(plateau,4)==0){
+        color(0,player2);
+        printf("2");
+    }else{
+        color(0,7);
+        printf(" ");
+    }
+    color(15,0); printf("\n");
+    printf("Canassons arrivés:\n");
+    color(player1,0);
+    printf("Joueur 1: ");
+    for(int i=0;i<2;i++){
+        if(arrivee[i]==1){
+            color(0,player1); printf("%d",i+1);
+        }else{
+            color(0,7); printf(" ");
+        }
+    }
+    color(15,0); printf("\n");
+    color(player2,0);
+    printf("Joueur 2: ");
+    for(int i=2;i<4;i++){
+        if(arrivee[i]==1){
+            color(0,player2); printf("%d",i-1);
+        }else{
+            color(0,7); printf(" ");
+        }
+    }
+    color(15,0); printf("\n");
 }
 
 void afficherCase(int *plateau, int player1, int player2, int i){
