@@ -275,7 +275,7 @@ int coordCheval(int *plateau, int id_cheval, int *arrivee){
 int tourDeJeux(int *plateau, int player, int *arrivee){
     printf("Au tour du joueur %d de jouer\n", player);
     system("pause");
-    int pion=1;
+    int pion=1;//Premier pion du joueur
     if(player==2) pion=3;
 
     int resultatDe=tirageDe();
@@ -301,7 +301,7 @@ int tourDeJeux(int *plateau, int player, int *arrivee){
         printf("Vous avez plusieurs canassons sur le plateau, lequel voulez vous avancer ? (1/2) ");
         scanf("%d",&id_canasson);
         }while(id_canasson!=1 && id_canasson!=2);
-        id_canasson=id_canasson-1+pion;//id_canason-1 (0 ou 1) +pion (1 ou 3)=1 à 4
+        id_canasson=id_canasson-1+pion;//id_canason-1 (0 ou 1) +pion (1 ou 3)=pion 1 à 4
     }else{
         if(chevalSurPlateau(plateau, pion, arrivee)==1){
             id_canasson=pion;
