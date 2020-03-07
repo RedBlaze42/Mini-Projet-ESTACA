@@ -127,7 +127,7 @@ int tirageDe(){
     }
     int resultatDe=rand()%6+1;
     printf("\nRésultat du dé: %d\n",resultatDe);
-    return 1;
+    return resultatDe;
 }
 
 int chevalSurPlateau(int *plateau, int quelCanasson, int *arrivee){
