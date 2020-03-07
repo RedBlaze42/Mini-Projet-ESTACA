@@ -89,10 +89,9 @@ int selectionCouleurs(int* player1,int *player2){
     int age1;
     int age2;
     srand(time(NULL));
-    printf("Quel est votre age joueur numero 1?\n");
+    printf("Quel est votre age joueur numero 1 ? ");
     scanf("%d",&age1);
-    system("cls");
-    printf("Quel est votre age joueur numero 2\n");
+    printf("Quel est votre age joueur numero 2 ? ");
     scanf("%d",&age2);
     system("cls");
     if (age1<age2){
@@ -146,10 +145,10 @@ int sortirCheval(int *plateau, int player,int *arrivee){
             printf("La case est déja occupée vous ne pouvez pas sortir le canasson\n");
             return 0;
         }
-        if(chevalSurPlateau(plateau,1,arrivee)==0){
+        if(chevalSurPlateau(plateau,1,arrivee)==0 && arrivee[0]==0){
             plateau[enclosPlayer1]=1;
             printf("Vous avez sorti un canasson !");
-        }else if(chevalSurPlateau(plateau,2,arrivee)==0){
+        }else if(chevalSurPlateau(plateau,2,arrivee)==0 && arrivee[1]==0){
             plateau[enclosPlayer1]=2; 
             printf("Vous avez sorti un canasson !");         
         }else{
@@ -161,10 +160,10 @@ int sortirCheval(int *plateau, int player,int *arrivee){
             printf("La case est déja occupée vous ne pouvez pas sortir le canasson\n");
             return 0;
         }
-        if(chevalSurPlateau(plateau,3,arrivee)==0){
+        if(chevalSurPlateau(plateau,3,arrivee)==0 && arrivee[2]==0){
             plateau[enclosPlayer2]=3;
             printf("Vous avez sorti un canasson !");
-        }else if(chevalSurPlateau(plateau,4,arrivee)==0){
+        }else if(chevalSurPlateau(plateau,4,arrivee)==0 && arrivee[3]==0){
             plateau[enclosPlayer2]=4;          
             printf("Vous avez sorti un canasson !");
         }else{
