@@ -198,7 +198,7 @@ void affichagePlateau(int *plateau,int player1,int player2, int *arrivee){
     color(15,0);
     printf("\n");
     afficherCase(plateau,player1,player2,33);
-    color(0,0);
+    color(7,0);
     for(int i=1;i<15;i++) printf("|");//affiche 15 espaces
     afficherCase(plateau,player1,player2,16);
     color(15,0);
