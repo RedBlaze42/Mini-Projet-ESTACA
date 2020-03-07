@@ -56,7 +56,7 @@ int main(){
         if(arrivee[2]==1 && arrivee[3]==1) gagnant=2;
     }
     color(0,player1);
-    if(gagnant==2) color(0,player1);
+    if(gagnant==2) color(0,player2);
     printf("Le joueur %d a gagne !!",gagnant);
     color(15,0); printf("\n");
 }
@@ -147,10 +147,10 @@ int sortirCheval(int *plateau, int player,int *arrivee){
         }
         if(chevalSurPlateau(plateau,1,arrivee)==0 && arrivee[0]==0){
             plateau[enclosPlayer1]=1;
-            printf("Vous avez sorti un canasson !");
+            printf("Vous avez sorti un canasson !\n");
         }else if(chevalSurPlateau(plateau,2,arrivee)==0 && arrivee[1]==0){
             plateau[enclosPlayer1]=2; 
-            printf("Vous avez sorti un canasson !");         
+            printf("Vous avez sorti un canasson !\n");         
         }else{
             printf("Vous avez deja sorti tous vos canassons, vous ne pouvez pas en sortir d'autres\n");
             return 0;
@@ -199,7 +199,7 @@ void affichagePlateau(int *plateau,int player1,int player2, int *arrivee){
     printf("\n");
     afficherCase(plateau,player1,player2,33);
     color(0,0);
-    for(int i=1;i<15;i++) printf(" ");//affiche 15 espaces
+    for(int i=1;i<15;i++) printf("|");//affiche 15 espaces
     afficherCase(plateau,player1,player2,16);
     color(15,0);
     printf("\n");
@@ -292,6 +292,13 @@ int tourDeJeux(int *plateau, int player, int *arrivee){
 
     if(chevalSurPlateau(plateau, pion, arrivee)==0 && chevalSurPlateau(plateau, pion+1, arrivee)==0){
         printf("Vous n'avez aucun canasson sur le plateau, vous ne pouvez donc pas jouer, passont au tour suivant.\n");
+        return 0;
+    }
+    printf("Voulez vous avancer un canasson (0) ou passez votre tour (1)? ");
+    int input=0;
+    scanf("%d",&input);
+    if(input==1){
+        printf("Vous avez passe votre tour.\n");
         return 0;
     }
     int id_canasson;
