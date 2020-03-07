@@ -176,7 +176,7 @@ int sortirCheval(int *plateau, int player,int *arrivee){
 
 void affichagePlateau(int *plateau,int player1,int player2, int *arrivee){
     printf("Plateau de jeu: \n");
-    if(chevalSurPlateau(plateau,1,arrivee)==0 && arrivee[0]==0){
+    if(chevalSurPlateau(plateau,1,arrivee)==0 && arrivee[0]==0){//Enclos joueur 1
         color(0,player1);
         printf("1");
     }else{
@@ -192,7 +192,7 @@ void affichagePlateau(int *plateau,int player1,int player2, int *arrivee){
         printf(" ");
     }
     color(15,0); printf("\n");
-    for(int i=0;i<16;i++){
+    for(int i=0;i<16;i++){//Première ligne du plateau
         afficherCase(plateau,player1,player2,i);
     }
     color(15,0);
@@ -203,13 +203,13 @@ void affichagePlateau(int *plateau,int player1,int player2, int *arrivee){
     afficherCase(plateau,player1,player2,16);
     color(15,0);
     printf("\n");
-    for(int i=32;i>16;i--){
+    for(int i=32;i>16;i--){//Deuxième ligne du plateau
         afficherCase(plateau,player1,player2,i);
     }
     color(15,0);
     printf("\n");
     for(int i=0;i<15;i++) printf(" ");
-    if(chevalSurPlateau(plateau,3,arrivee)==0 && arrivee[2]==0){
+    if(chevalSurPlateau(plateau,3,arrivee)==0 && arrivee[2]==0){//Enclos joueur 2
         color(0,player2);
         printf("1");
     }else{
